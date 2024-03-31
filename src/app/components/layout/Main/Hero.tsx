@@ -26,7 +26,7 @@ function Hero() {
 				className={'z-10 flex w-full flex-row gap-2 sm:max-w-[705px] lg:gap-4'}
 			>
 				<Link
-					href={'/intership'}
+					href={'/internship'}
 					className={
 						'flex min-h-[72px] w-full flex-col justify-between rounded-[12px] bg-light p-2 duration-200 hover:bg-orange hover:text-white hover:shadow-2xl sm:rounded-[32px] sm:p-4 2xl:px-6 2xl:py-7'
 					}

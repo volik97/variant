@@ -1,22 +1,31 @@
+'use client';
 import React from 'react';
 import { v4 } from 'uuid';
 import LinkButton from '@/app/components/ui/Header/LinkButton';
 
 const links = [
-	{ href: '/career', name: 'Вакансии' },
-	{ href: '/intership', name: 'Стажировка' },
+	{ href: '/internship', name: 'Стажировка' },
+	{ href: '/career', name: 'Варианты направлений' },
 	{ href: '/testing', name: 'Тестирование' },
 	{ href: '/about', name: 'О компании' },
 ];
 
-function Navigation({ navIsOpen }: { navIsOpen?: (open: boolean) => void }) {
+function Navigation({
+	navIsOpen,
+	className,
+}: {
+	navIsOpen?: (open: boolean) => void;
+	className?: string;
+}) {
 	return (
-		<ul
-			className={'flex flex-col items-center justify-center gap-8 lg:flex-row'}
-		>
+		<ul className={className}>
 			{links.map((link) => (
-				<li key={v4()} onClick={() => navIsOpen && navIsOpen(false)}>
-					<LinkButton href={link.href} name={link.name} />
+				<li
+					className={'h-4 sm:h-fit'}
+					key={v4()}
+					onClick={() => navIsOpen && navIsOpen(false)}
+				>
+					<LinkButton onClose={navIsOpen} href={link.href} name={link.name} />
 				</li>
 			))}
 		</ul>

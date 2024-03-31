@@ -38,7 +38,7 @@ function Content() {
 						className="self-center py-[31px] min-[400px]:py-20 min-[484px]:py-[31px]"
 					/>
 					<div className={'flex flex-col gap-y-2 sm:gap-y-5'}>
-						<div className={'bg-grey h-px w-full'} />
+						<div className={'h-px w-full bg-grey'} />
 						<Text
 							params={'text-grey'}
 							text={
@@ -65,7 +65,7 @@ function Content() {
 						></Title>
 					</div>
 					<div className={'flex w-full flex-col gap-y-2 sm:gap-y-5'}>
-						<div className={'bg-grey h-px w-full'} />
+						<div className={'h-px w-full bg-grey'} />
 						<Text
 							params={'text-grey'}
 							text={
@@ -99,7 +99,7 @@ function Content() {
 				</div>
 				<Image
 					src={handImg}
-					alt={'ROOOOOOCK'}
+					alt={'handImg'}
 					className={
 						'absolute bottom-0 right-0 object-center sm:w-[350px] lg:w-[400px] xl:-bottom-60 xl:w-[630px]'
 					}
@@ -117,7 +117,7 @@ function Content() {
 				</div>
 			</WrapperBlocks>
 			{/*Блок С информацией*/}
-			<div className={'grid max-h-[1096px] gap-4 sm:grid-cols-2 xl:gap-10'}>
+			<div className={'grid gap-4 sm:grid-cols-2 xl:gap-10'}>
 				{/*Блок адрес*/}
 				<WrapperBlocks
 					params={'bg-white row-span-1 min-h-[216px] justify-between gap-10'}
@@ -140,7 +140,7 @@ function Content() {
 						/>
 					</div>
 					<div className={'flex w-full flex-col gap-y-2 sm:gap-y-5'}>
-						<div className={'bg-grey h-px w-full'} />
+						<div className={'h-px w-full bg-grey'} />
 						<Text
 							params={'text-grey'}
 							text={
@@ -167,7 +167,7 @@ function Content() {
 						className="min-[480px]: self-center py-[31px] min-[400px]:py-20 min-[484px]:py-[31px]"
 					/>
 					<div className={'flex flex-col gap-y-2 sm:gap-y-5'}>
-						<div className={'bg-grey h-px w-full'} />
+						<div className={'h-px w-full bg-grey'} />
 						<Text
 							params={'text-grey'}
 							text={'Ознакомление с основными подходами компании к работе.'}

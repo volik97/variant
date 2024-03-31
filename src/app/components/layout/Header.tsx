@@ -26,22 +26,33 @@ function Header() {
 						src={navButton}
 						alt={'navButton'}
 					/>
-					<nav className={'hidden w-full lg:block'}>
-						<Navigation />
+					<nav
+						className={
+							' hidden w-full items-center justify-center pt-0.5 lg:flex'
+						}
+					>
+						<Navigation
+							className={
+								'flex h-full flex-col items-center justify-center gap-3 lg:flex-row'
+							}
+						/>
 					</nav>
 				</div>
 				<div
 					className={`${
-						navIsOpen ? `max-h-[400px]` : 'max-h-0'
-					} relative w-full overflow-hidden transition-all duration-700 ease-in-out lg:hidden `}
+						navIsOpen ? `max-h-[120px] sm:max-h-[160px]` : 'max-h-0'
+					} relative w-full overflow-hidden transition-all duration-300 ease-in-out lg:hidden `}
 				>
 					<div
 						className={
-							'flex items-center justify-center rounded-b-2xl bg-dark p-2 py-16'
+							'flex items-start justify-start rounded-b-2xl bg-dark pb-2 sm:py-4 '
 						}
 						onMouseLeave={() => setNavIsOpen(!navIsOpen)}
 					>
-						<Navigation />
+						<Navigation
+							navIsOpen={setNavIsOpen}
+							className={'flex flex-col gap-3'}
+						/>
 					</div>
 				</div>
 			</div>
