@@ -4,7 +4,6 @@ import Footer from '@/app/components/layout/Footer';
 import Header from '@/app/components/layout/Header';
 import React from 'react';
 import localFont from 'next/font/local';
-import { ThemeProvider } from '@material-tailwind/react';
 
 const poppins = localFont({
 	src: [
