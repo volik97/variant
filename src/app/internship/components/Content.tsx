@@ -335,6 +335,7 @@ export default function Content() {
 				<div className={'flex flex-col gap-4 sm:col-span-7 sm:col-start-6'}>
 					{dataFAQ.map(({ id, head, body }, i) => (
 						<Accordion
+							key={id}
 							head={head}
 							body={body}
 							id={id}

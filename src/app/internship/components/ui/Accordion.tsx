@@ -15,7 +15,6 @@ function Accordion({
 }) {
 	return (
 		<div
-			key={id}
 			id={'1'}
 			className={`flex flex-col overflow-hidden rounded-[16px] bg-white px-3 py-4 sm:p-5 lg:p-9 2xl:rounded-[32px] 2xl:px-[60px] 2xl:py-10`}
 		>
@@ -50,9 +49,9 @@ function Accordion({
 						<path
 							d="M17 2.3125V31.6875M31.6875 17H2.3125"
 							stroke="#F25430"
-							stroke-width="3"
-							stroke-linecap="round"
-							stroke-linejoin="round"
+							strokeWidth="3"
+							strokeLinecap="round"
+							strokeLinejoin="round"
 						/>
 					</svg>
 				</a>
