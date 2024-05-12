@@ -5,4 +5,15 @@
 body {
   background-color: #F1F6F9;
 }
+@keyframes custom-bounce {
+  30% {
+    padding-bottom: 5px;
+  }
+  40% {
+    padding-bottom: 0;
+  }
+}
 
+.custom-bounce {
+  animation: custom-bounce 1.5s linear;
+}

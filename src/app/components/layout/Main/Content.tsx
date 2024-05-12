@@ -5,11 +5,7 @@ import Image from 'next/image';
 import testingImg from '../../../img/content/testing.svg';
 import Text from '@/app/components/ui/Text/Text';
 import humansCheck from '../../../img/content/humanCheck.svg';
-import folderImg from '../../../img/content/folder.svg';
 import handImg from '../../../img/content/handRock.svg';
-import rotateHandImg from '../../../img/content/rotateHand.svg';
-import mapIcon from '../../../img/content/mapIcon.svg';
-import aboutBlockImg from '../../../img/content/aboutBlockImg.svg';
 import aboutImg from '../../../img/content/aboutImg.svg';
 import mapImg from '../../../img/content/map.svg';
 function Content() {

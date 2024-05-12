@@ -18,7 +18,7 @@ function Title({
 			className={`${color} ${
 				size2XL
 					? 'text-2xl sm:text-5xl sm:leading-[4.275rem] sm:tracking-[.01em] lg:text-[57px] lg:leading-[4.275rem] lg:tracking-[.02em]'
-					: 'text-xl sm:text-3xl sm:leading-[2.675rem] sm:tracking-[.01em]  lg:text-4xl lg:leading-[2.675rem] lg:tracking-[.01em] xl:text-5xl'
+					: 'text-xl sm:text-3xl sm:leading-[2.675rem] sm:tracking-[.01em]  lg:text-4xl lg:leading-[2.675rem] lg:tracking-[.05em] xl:text-5xl'
 			} flex max-w-[851px] flex-col font-semibold leading-[1,95rem] tracking-[.02em]`}
 		>
 			<>
