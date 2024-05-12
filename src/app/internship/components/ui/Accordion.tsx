@@ -16,7 +16,7 @@ function Accordion({
 	return (
 		<div
 			id={'1'}
-			className={`flex flex-col overflow-hidden rounded-[16px] bg-white px-3 py-4 sm:p-5 lg:p-9 2xl:rounded-[32px] 2xl:px-[60px] 2xl:py-10`}
+			className={`flex cursor-pointer flex-col overflow-hidden rounded-[16px] bg-white px-3 py-4 sm:p-5 lg:p-9 2xl:rounded-[32px] 2xl:px-[60px] 2xl:py-10`}
 		>
 			<div
 				onClick={() => {
