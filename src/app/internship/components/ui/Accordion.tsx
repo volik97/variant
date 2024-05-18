@@ -24,7 +24,7 @@ function Accordion({
 						setAccordion(null);
 					} else setAccordion(id);
 				}}
-				className={'flex gap-3 text-lg'}
+				className={'flex items-center justify-between gap-3 text-lg'}
 			>
 				<a
 					className={

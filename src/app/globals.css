@@ -17,3 +17,36 @@ body {
 .custom-bounce {
   animation: custom-bounce 1.5s linear;
 }
+.react-datepicker-wrapper{
+  width: 100%;
+}
+.react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle {
+  border-color: #F25430 !important;
+  color: #F25430 !important; /* Ваш цвет */
+  fill: #F25430 !important; /* Ваш цвет */
+}
+.react-datepicker-popper .react-datepicker__triangle {
+  stroke: #F25430 !important;
+}
+.react-datepicker__navigation-icon::before{
+  border-color: white !important;
+}
+.react-datepicker__header {
+  background-color: #F25430 !important;
+  border-bottom: none !important;
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name {
+  color: white !important; /* text-gray-700 */
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #F25430 !important; /* bg-red-500 */
+  color: white !important;
+}
+
+.react-datepicker__day--today {
+  border-color: #F25430 !important; /* border-red-500 */
+}

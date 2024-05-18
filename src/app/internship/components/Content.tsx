@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 import stars from '../img/stars.png';
 import varianImage from '../img/variantimg.png';
 import testing from '../../img/content/testing.svg';
+import testing_big from '../img/testing_big.png';
 import airplan from '../img/airplan.png';
 import notebook from '../img/notebook.png';
 import arrow from '../img/arrow.png';
@@ -15,6 +16,7 @@ import table from '../img/table.png';
 import calendar from '../img/calendar.png';
 import portfel from '../img/portfel.png';
 import Accordion from '@/app/internship/components/ui/Accordion';
+import Form from '@/app/components/widgets/Form';
 export default function Content() {
 	const [accordion, setAccordion] = useState<string | null>(null);
 	const dataFAQ = [
@@ -345,6 +347,27 @@ export default function Content() {
 					))}
 				</div>
 			</div>
+			{/*Form*/}
+			<WrapperBlocks params={'bg-orange'}>
+				<div className={'md:hidden'}>
+					<Form />
+				</div>
+				<div className={'relative hidden grid-cols-12 md:grid'}>
+					<div
+						className={'col-span-5 flex flex-col items-start justify-between'}
+					>
+						<Title color={'text-white'} text={'Стань частью команды'} />
+						<Image
+							src={testing_big}
+							alt={'testing'}
+							className={'pr-20 xl:pr-40'}
+						/>
+					</div>
+					<div className={'col-span-7 col-start-6'}>
+						<Form />
+					</div>
+				</div>
+			</WrapperBlocks>
 		</section>
 	);
 }
