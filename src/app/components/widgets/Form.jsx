@@ -13,7 +13,7 @@ registerLocale('ru', ru);
 function Form({ isModal, onClose, onCloseOnPageCareer }) {
 	const [date, setDate] = useState();
 	const [modalFormSend, setModalFormSend] = useState(false);
-	const canSendForm = localStorage.getItem('canSendForm');
+	const canSendForm = global?.localStorage?.getItem('canSendForm');
 	const [messageCantSendForm, setMessageCantSendForm] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 	const errorMessageRef = useRef();
