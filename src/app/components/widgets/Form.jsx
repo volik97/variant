@@ -6,8 +6,8 @@ import { PatternFormat } from 'react-number-format';
 import Select from 'react-select';
 import { PropagateLoader } from 'react-spinners';
 import { createPortal } from 'react-dom';
-import Link from 'next/link';
 import ModalSuccessSendForm from '@/app/components/widgets/ModalSuccessSendForm';
+import PropTypes from 'prop-types';
 registerLocale('ru', ru);
 
 function Form({ isModal, onClose, onCloseOnPageCareer }) {
@@ -394,6 +394,11 @@ function Form({ isModal, onClose, onCloseOnPageCareer }) {
 	);
 }
 
+Form.propTypes = {
+	isModal: PropTypes.bool,
+	onClose: PropTypes.func,
+	onCloseOnPageCareer: PropTypes.func,
+};
 const InputForm = ({
 	label,
 	value,
