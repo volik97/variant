@@ -6,8 +6,8 @@ import LinkButton from '@/app/components/ui/Header/LinkButton';
 const links = [
 	{ href: '/internship', name: 'Стажировка' },
 	{ href: '/career', name: 'Варианты направлений' },
-	{ href: '/testing', name: 'Тестирование' },
-	{ href: '/about', name: 'О компании' },
+	{ href: '/test', name: 'Тестирование' },
+	{ href: '/about', name: 'Приоритеты компании' },
 ];
 
 function Navigation({

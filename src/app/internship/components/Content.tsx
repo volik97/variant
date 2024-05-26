@@ -173,7 +173,7 @@ export default function Content() {
 								</a>
 								<Image
 									src={testing}
-									alt={'testing'}
+									alt={'test'}
 									className={'w-1/4 max-w-[100px] md:w-1/2 xl:max-w-[141px]'}
 								/>
 							</div>
@@ -202,7 +202,7 @@ export default function Content() {
 								</a>
 								<Image
 									src={airplan}
-									alt={'testing'}
+									alt={'test'}
 									className={'w-1/4 max-w-[100px] md:w-1/2 xl:max-w-[141px]'}
 								/>
 							</div>
@@ -229,7 +229,7 @@ export default function Content() {
 								</a>
 								<Image
 									src={notebook}
-									alt={'testing'}
+									alt={'test'}
 									className={'w-1/4 max-w-[100px] md:w-1/2 xl:max-w-[141px]'}
 								/>
 							</div>
@@ -359,7 +359,7 @@ export default function Content() {
 						<Title color={'text-white'} text={'Стань частью команды'} />
 						<Image
 							src={testing_big}
-							alt={'testing'}
+							alt={'test'}
 							className={'pr-20 xl:pr-40'}
 						/>
 					</div>

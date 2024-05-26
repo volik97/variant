@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { ru } from 'date-fns/locale'; // Импортируем русскую локаль из date-fns
 import { PatternFormat } from 'react-number-format';
 import Select from 'react-select';
+import { PropagateLoader } from 'react-spinners';
+import { createPortal } from 'react-dom';
+import Link from 'next/link';
+import ModalSuccessSendForm from '@/app/components/widgets/ModalSuccessSendForm';
 registerLocale('ru', ru);
 
-function Form(props) {
+function Form({ isModal, onClose, onCloseOnPageCareer }) {
 	const [date, setDate] = useState();
-
+	const [modalFormSend, setModalFormSend] = useState(false);
+	const canSendForm = localStorage.getItem('canSendForm');
+	const [messageCantSendForm, setMessageCantSendForm] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
+	const errorMessageRef = useRef();
 	const [dataForm, setDataForm] = useState({
 		name: '',
 		date: date,
@@ -106,34 +114,89 @@ function Form(props) {
 			color: '#041728', // Dark color
 		}),
 	};
-	return (
-		<div
-			className={`flex flex-col gap-6 rounded-[16px] bg-white px-3 py-4 sm:gap-8 sm:p-5 md:gap-9 lg:gap-10 lg:p-9 2xl:rounded-[32px] 2xl:px-[60px] 2xl:py-10`}
-		>
-			<div className={'space-y-4 sm:space-y-5 md:space-y-7 lg:space-y-6'}>
-				<a
-					className={
-						'flex flex-col text-[18px] font-semibold leading-7 tracking-wide text-dark sm:text-[24px] sm:leading-[28px] md:text-[26px] md:leading-[32px] lg:text-[32px] lg:leading-[38px] xl:text-[36px] xl:leading-[44px] 2xl:text-[40px] 2xl:leading-[50px]'
+	const handleOnSubmit = async (event) => {
+		event.preventDefault();
+		if (canSendForm === 'true') {
+			setMessageCantSendForm(true);
+		} else {
+			setIsLoading(true);
+			fetch('/api/nodemailer', {
+				method: 'POST',
+				headers: {
+					Accept: 'application/json',
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(dataForm),
+			})
+				.then((response) => {
+					if (response.status === 200) {
+						localStorage.setItem('canSendForm', 'true');
+						setIsLoading(false);
+						onClose && onClose(false);
+						if (onCloseOnPageCareer) {
+							onCloseOnPageCareer(true);
+						} else {
+							setModalFormSend(true);
+						}
 					}
-				>
-					{'Подать заявку на стажировку'}
-				</a>
-				<div className={'flex flex-row flex-wrap'}>
-					<span
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		}
+	};
+
+	return (
+		<form
+			onSubmit={handleOnSubmit}
+			className={`hide-scroll flex w-full flex-col gap-6 overflow-y-scroll ${isModal && 'border border-light'} rounded-[16px] bg-white px-3 py-4 sm:gap-8 sm:p-5 md:gap-9 lg:gap-10 lg:p-9 2xl:rounded-[32px] 2xl:px-[60px] 2xl:py-10`}
+		>
+			<div className={'flex justify-between'}>
+				<div className={'space-y-4 sm:space-y-5 md:space-y-7 lg:space-y-6'}>
+					<a
 						className={
-							'text-xs text-grey sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl'
+							'flex flex-col text-[18px] font-semibold leading-7 tracking-wide text-dark sm:text-[24px] sm:leading-[28px] md:text-[26px] md:leading-[32px] lg:text-[32px] lg:leading-[38px] xl:text-[36px] xl:leading-[44px] 2xl:text-[40px] 2xl:leading-[50px]'
 						}
 					>
-						{`Заполните форму и нажмите кнопку`}
-					</span>
-					<span
-						className={
-							'ml-1.5 text-xs text-orange sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl'
-						}
-					>
-						{' «Подать заявку»'}
-					</span>
+						{'Подать заявку на стажировку'}
+					</a>
+					<div className={'flex flex-row flex-wrap'}>
+						<span
+							className={
+								'text-xs text-grey sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl'
+							}
+						>
+							{`Заполните форму и нажмите кнопку`}
+						</span>
+						<span
+							className={
+								'ml-1.5 text-xs text-orange sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl'
+							}
+						>
+							{' «Подать заявку»'}
+						</span>
+					</div>
 				</div>
+				{isModal && (
+					<svg
+						onClick={() => onClose(false)}
+						className={'h-fit w-10 cursor-pointer lg:w-fit'}
+						width="58"
+						height="54"
+						viewBox="0 0 58 54"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<rect width="57.5425" height="54" rx="16" fill="#F1F6F9" />
+						<path
+							d="M18.3797 37.3798L39.1631 16.6207M18.3919 16.6085L39.151 37.3919"
+							stroke="#F25430"
+							strokeWidth="3"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+						/>
+					</svg>
+				)}
 			</div>
 			<div className={'flex flex-col gap-3'}>
 				<span
@@ -152,12 +215,12 @@ function Form(props) {
 						id={'name'}
 						placeholder={'Имя Фамилия Отчество'}
 					/>
-					<div className="relative mt-3 w-full">
+					<div className="relative z-50 mt-3 w-full">
 						<label className="absolute -top-4 left-3 z-50 bg-white px-1 text-sm text-orange">
 							{'Дата рождения'}
 						</label>
 						<DatePicker
-							className="!w-full rounded-[14px] border border-orange px-6 py-4 text-dark focus:outline-none focus:ring-1 focus:ring-[#cf2b1f]"
+							className=" !w-full rounded-[14px] border border-orange px-6 py-4 text-dark focus:outline-none focus:ring-1 focus:ring-[#cf2b1f]"
 							calendarClassName="border !border-red-500 !rounded-[18px] !overflow-hidden"
 							locale="ru"
 							selected={date}
@@ -215,16 +278,17 @@ function Form(props) {
 						placeholder={'Вуз'}
 					/>
 					<InputForm>
-						<label className="absolute -top-4 left-3 z-50 bg-white px-1 text-sm text-orange">
+						<label className="absolute -top-4 left-3 !z-30 bg-white px-1 text-sm text-orange">
 							{'Уровень образования'}
 						</label>
 						<Select
 							instanceId={'education'}
 							options={[
-								{ value: 1, label: 'Среднее профессиональное' },
-								{ value: 2, label: 'Бакалавриат' },
-								{ value: 3, label: 'Специалитет' },
-								{ value: 4, label: 'Магистратура' },
+								{ value: 1, label: 'Среднее' },
+								{ value: 2, label: 'Среднее специальное' },
+								{ value: 3, label: 'Неоконченное высшее' },
+								{ value: 4, label: 'Высшее-Бакалавр' },
+								{ value: 5, label: 'Высшее-Магистр' },
 							]}
 							value={dataForm.education}
 							onChange={(e) => selectHandleChange(e, 'education')}
@@ -252,12 +316,11 @@ function Form(props) {
 							options={[
 								{ value: 1, label: 'Очная' },
 								{ value: 2, label: 'Заочная' },
-								{ value: 3, label: 'Очно-заочная' },
 							]}
 							value={dataForm.formEducation}
 							onChange={(e) => selectHandleChange(e, 'formEducation')}
 							styles={customStyles}
-							placeholder="Выберите направление"
+							placeholder="Выберите форму"
 						/>
 					</InputForm>
 				</div>
@@ -278,13 +341,14 @@ function Form(props) {
 						<Select
 							instanceId={'internship'}
 							options={[
-								{ value: 1, label: 'Архитектурно-строительное' },
+								{ value: 1, label: 'Архитектурно-строительное направление' },
 								{
 									value: 2,
-									label: 'Тепло-водоснабжение, вентиляция и кондиционирование',
+									label:
+										'Направление тепло-водоснабжения, вентиляции и кондиционирования',
 								},
-								{ value: 3, label: 'Электрические сети' },
-								{ value: 4, label: 'Сметное' },
+								{ value: 3, label: 'Направление электрических сетей' },
+								{ value: 4, label: 'Сметное направление' },
 							]}
 							value={dataForm.internship}
 							onChange={(e) => selectHandleChange(e, 'internship')}
@@ -306,15 +370,27 @@ function Form(props) {
 					</div>
 				</div>
 			</div>
+			{messageCantSendForm && (
+				<span className={'-my-3 text-orange'}>
+					Вы уже отправляли заявку. Пожалуйста, дождитесь ответа по ней.
+				</span>
+			)}
 			<button
 				type={'submit'}
-				className={
-					'w-full rounded-[14px] bg-orange px-6 py-3.5 text-[20px] font-semibold tracking-wider text-white hover:bg-orange/90'
-				}
+				className={`w-full ${isLoading && 'min-h-[58px]'} rounded-[14px] bg-orange px-6 py-3.5 text-[20px] font-semibold tracking-wider text-white hover:bg-[#de4b2a]`}
 			>
-				{'Подать заявку'}
+				{isLoading ? (
+					<PropagateLoader className={'pb-4'} color={'#F1F6F9'} />
+				) : (
+					'Подать заявку'
+				)}
 			</button>
-		</div>
+			{modalFormSend &&
+				createPortal(
+					<ModalSuccessSendForm onClose={setModalFormSend} />,
+					document.body
+				)}
+		</form>
 	);
 }
 
@@ -339,6 +415,7 @@ const InputForm = ({
 				<input
 					maxLength={maxLength}
 					placeholder={placeholder}
+					required
 					id={id}
 					type={type ? type : 'text'}
 					value={value}

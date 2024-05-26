@@ -50,3 +50,6 @@ body {
 .react-datepicker__day--today {
   border-color: #F25430 !important; /* border-red-500 */
 }
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}

@@ -155,7 +155,7 @@ function Content() {
 						>
 							<Title color={'text-orange'} text={'05'} />
 						</a>
-						<Title text={'О компании'} color={'text-dark'}></Title>
+						<Title text={'Приоритеты Компании'} color={'text-dark'}></Title>
 					</div>
 					<Image
 						src={aboutImg}

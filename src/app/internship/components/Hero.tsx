@@ -31,8 +31,8 @@ function Hero() {
 						'mt-6 hidden text-2xl leading-9 tracking-[0.02em] text-white md:max-w-[500px] lg:block 2xl:max-w-full'
 					}
 				>
-					Организуем прохождение образовательного онлайн-курса, стажировку и
-					трудоустройство в компанию Вариант.
+					Организуем прохождение образовательного курса стажировки и
+					трудоустройство в компанию Вариант
 				</p>
 				<button
 					className={
@@ -44,14 +44,14 @@ function Hero() {
 			</div>
 			<Image
 				className={
-					'absolute -bottom-12 -right-6 scale-[1.20] transform sm:w-[370px] xl:bottom-24 xl:right-6 xl:w-[447px] 2xl:w-[547px]'
+					'absolute -bottom-12 -right-6 scale-[1.20] transform sm:w-[370px] xl:bottom-24 xl:right-6 xl:w-[447px] 2xl:-right-20 2xl:w-[547px] min-[1650px]:right-6'
 				}
 				src={bgImgBlock}
 				alt={'bg-hero'}
 			/>
 			<Image
 				className={
-					'absolute bottom-20 right-0 transform sm:w-[340px] xl:bottom-40 xl:right-14 xl:w-[500px] xl:-scale-x-100 2xl:w-[600px]'
+					'absolute bottom-20 right-0 transform sm:w-[340px] xl:bottom-40 xl:right-14 xl:w-[500px] xl:-scale-x-100 2xl:-right-20 2xl:w-[600px] min-[1650px]:right-6'
 				}
 				src={heroChelik}
 				alt={'bg-hero'}
