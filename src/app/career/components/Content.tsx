@@ -37,6 +37,7 @@ function Content() {
 						<div className={'flex gap-1 sm:gap-2'}>
 							{variant.labels.map((label, index) => (
 								<span
+									key={index}
 									className={
 										'flex w-fit items-center justify-center rounded-[16px] bg-[#435362]/10 px-2 py-1 text-xs text-grey sm:px-3 sm:text-lg lg:text-xl xl:rounded-[40px] xl:px-5 xl:py-2 xl:text-2xl 2xl:text-3xl'
 									}
