@@ -67,7 +67,7 @@ function TestCard({
 												: setCheckedItem(e.currentTarget.id);
 											question.value = item.value;
 										}}
-										key={useId()}
+										key={id}
 									>
 										<input
 											type={'checkbox'}
