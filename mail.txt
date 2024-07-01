@@ -1,0 +1,4 @@
+Почта mail.ru
+email: variant_rabota@inbox.ru
+login: variant_rabota
+password: -Uip3zrOOcX3

@@ -8,6 +8,7 @@ import { PropagateLoader } from 'react-spinners';
 import { createPortal } from 'react-dom';
 import ModalSuccessSendForm from '@/app/components/widgets/ModalSuccessSendForm';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 registerLocale('ru', ru);
 
 function Form({ isModal, onClose, onCloseOnPageCareer }) {
@@ -145,7 +146,6 @@ function Form({ isModal, onClose, onCloseOnPageCareer }) {
 				});
 		}
 	};
-
 	return (
 		<form
 			onSubmit={handleOnSubmit}
@@ -223,8 +223,12 @@ function Form({ isModal, onClose, onCloseOnPageCareer }) {
 							className=" !w-full rounded-[14px] border border-orange px-6 py-4 text-dark focus:outline-none focus:ring-1 focus:ring-[#cf2b1f]"
 							calendarClassName="border !border-red-500 !rounded-[18px] !overflow-hidden"
 							locale="ru"
-							selected={date}
-							onChange={(date) => setDate(date)}
+							selected={dataForm.date}
+							onChange={(e) =>
+								setDataForm((prevState) => {
+									return { ...prevState, date: moment(e).format('L') };
+								})
+							}
 						/>
 					</div>
 				</div>

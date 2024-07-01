@@ -31,7 +31,7 @@ function ModalSuccessSendForm({ onClose }: { onClose: (a: boolean) => void }) {
 								'text-xs text-grey sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl'
 							}
 						>
-							{`Заявка успешно отправлена. Пройдите тестирование, для дальнейшего продвижения.`}
+							{`Ваша заявка успешно отправлена! Скоро мы вам перезвоним.`}
 						</span>
 					</div>
 					<svg
@@ -54,12 +54,12 @@ function ModalSuccessSendForm({ onClose }: { onClose: (a: boolean) => void }) {
 					</svg>
 				</div>
 				<Link
-					href={'/test'}
+					href={'/'}
 					className={
 						'flex w-full items-center justify-center rounded-[14px] bg-orange px-4 py-2 text-sm font-semibold tracking-wider text-white hover:bg-[#de4b2a] md:px-6 md:py-3.5 md:text-[20px]'
 					}
 				>
-					{'Пройти тестирование'}
+					{'Вернуться на главную'}
 				</Link>
 			</div>
 		</div>

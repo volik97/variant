@@ -28,7 +28,7 @@ function Header() {
 					/>
 					<nav
 						className={
-							' hidden w-full items-center justify-center pt-0.5 lg:flex'
+							' hidden w-full items-center justify-center pt-[1px] lg:flex'
 						}
 					>
 						<Navigation
@@ -41,7 +41,7 @@ function Header() {
 				<div
 					className={`${
 						navIsOpen ? `max-h-[120px] sm:max-h-[160px]` : 'max-h-0'
-					} relative w-full overflow-hidden transition-all duration-300 ease-in-out lg:hidden `}
+					} relative w-full overflow-hidden transition-all duration-300 ease-in-out lg:hidden`}
 				>
 					<div
 						className={

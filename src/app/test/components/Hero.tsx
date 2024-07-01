@@ -4,6 +4,7 @@ import Image from 'next/image';
 import bgImgBlock from '@/app/img/hero/bg-hero-block.svg';
 import heroStudent from '@/app/img/hero/bg-hero-student.svg';
 import WrapperBlocksM from '@/app/components/wrappers/wrapperBlocksM';
+import Link from 'next/link';
 
 function Hero() {
 	return (
@@ -31,13 +32,14 @@ function Hero() {
 						'Данный тест не является методом оценки специалиста и его знаний. Он сделан для того, чтобы любой начинающий специалист мог самостоятельно попробовать ответить на вопросы, подобные вопросам, с которыми любой инженер столкнется в работе. По результатам прохождения теста можно самостоятельно сделать вывод о готовности к такой работе на настоящий момент.'
 					}
 				</p>
-				<button
+				<Link
+					href={'/test/run'}
 					className={
 						'z-10 flex items-center justify-center rounded-[14px] bg-orange px-6 py-3.5 font-poppins text-lg font-semibold tracking-[0.1em] text-white hover:bg-[#de4b2a] sm:text-xl md:max-w-fit'
 					}
 				>
 					Пройти тестирование
-				</button>
+				</Link>
 			</div>
 			<Image
 				className={
